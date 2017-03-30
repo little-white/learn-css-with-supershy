@@ -112,10 +112,8 @@
   调整下编辑器的宽度吧
 */
 
-@media (min-width: 1000px) {
-    .cm-s-supershy {
-        width: 700px;
-    }
+.cm-s-supershy {
+    width: 700px;
 }
 
 
@@ -123,16 +121,15 @@
   最后咱们把这个编辑居中吧
 */
 
-@media (min-width: 1000px) {
-    .cm-s-supershy {
-        position: absolute;
-        left: 50%;
-        margin-left: -350px;
-    }
+.cm-s-supershy {
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
 }
 
 
 /**
   就到这吧
+  手机端样式还有问题 下次继续优化
   睡了~8
 */
