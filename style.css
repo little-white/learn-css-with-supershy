@@ -11,6 +11,7 @@
     padding: 20px;
 }
 
+
 /**
   给头部加个粉色背景
 */
@@ -19,6 +20,7 @@
     background-color: pink;
 }
 
+
 /**
   给底部加个黑色背景
 */
@@ -26,6 +28,7 @@
 .container .container-footer {
     background-color: black;
 }
+
 
 /**
   给...等等
@@ -50,6 +53,7 @@
     color: #B2B2B2;
 }
 
+
 /**
   给注释也变美一下
 */
@@ -59,6 +63,7 @@
     color: #00A6FF;
 }
 
+
 /**
   key的颜色
 */
@@ -67,6 +72,7 @@
     color: #7272ff;
 }
 
+
 /**
   value的颜色
 */
@@ -74,6 +80,7 @@
 .cm-s-supershy .cm-atom {
     color: #c737ab;
 }
+
 
 /**
   选择器增加个亮眼的颜色吧
@@ -87,6 +94,7 @@
     border-left: 3px solid #B2B2B2;
 }
 
+
 /**
   数字变个色儿
 */
@@ -99,23 +107,30 @@
     background: #000C16;
 }
 
+
 /**
   调整下编辑器的宽度吧
 */
 
-.cm-s-supershy {
-    width: 700px;
+@media (min-width: 1000px) {
+    .cm-s-supershy {
+        width: 700px;
+    }
 }
+
 
 /**
   最后咱们把这个编辑居中吧
 */
 
-.cm-s-supershy {
-    position: absolute;
-    left: 50%;
-    margin-left: -350px;
+@media (min-width: 1000px) {
+    .cm-s-supershy {
+        position: absolute;
+        left: 50%;
+        margin-left: -350px;
+    }
 }
+
 
 /**
   就到这吧
