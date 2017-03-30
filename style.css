@@ -1,103 +1,123 @@
 /**
-  这网络头像也忒大了，让我变小一点
-  只需要改变width
+  累了一天了
+  放松一下
+  我们来写个css样式
+  先来个容器吧
 */
 
-img {
-    width: 300px;
-}
-
-
-/**
-  为了让我的名片凸显出来
-  我们加个
-  圆角
-  阴影
-  看起来像那么回事
-*/
-
-#part-view {
-    border-radius: 5px;
-    box-shadow: 0 0 4px red;
-}
-
-
-/**
-  看起来图片的圆角没生效
-  这个好办加个overflow就ok了
-
-  冗余代码先忽略~
-*/
-
-#part-view {
-    overflow: hidden;
-}
-
-
-/**
-  有点小清新的感觉
-  下面处理文字了
-  先把内边距整大一些
-*/
-
-#part-view .summary {
+.container {
+    width: 1000px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-
 /**
-  地点加粗一下
+  给头部加个粉色背景
 */
 
-#part-view .summary .location {
-    font-weight: bold;
+.container .container-header {
+    background-color: pink;
 }
 
-
 /**
-  名字变个色
+  给底部加个黑色背景
 */
 
-#part-view .summary .name {
-    color: #756b6b;
+.container .container-footer {
+    background-color: black;
 }
 
-
 /**
-  职位和公司水平对齐
+  给...等等
+  这代码的样子好丑 :)
+  我们先有优化下吧
+  改变下
+  字的大小
+  行间距
+  字体
+  字间距
+  背景色
+  字的颜色
 */
 
-#part-view .summary .position {
-    float: left;
+.cm-s-supershy {
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: inconsolata, monospace;
+    letter-spacing: 0.3px;
+    word-spacing: 1px;
+    background: #151515;
+    color: #B2B2B2;
 }
-
-#part-view .summary .company {
-    float: right;
-}
-
 
 /**
-  此时我想在名字下面加个下划线
-  由于外层有个padding，我们来适当地重构下
+  给注释也变美一下
 */
 
-#part-view .summary {
-    padding: 0 !important;
+.cm-s-supershy .cm-comment {
+    font-style: italic;
+    color: #00A6FF;
 }
-
-#part-view .summary .location,
-#part-view .summary .name,
-#part-view .summary .position,
-#part-view .summary .company {
-    padding: 5px 20px;
-}
-
-#part-view .summary .name {
-    border-bottom: 1px solid #ccc;
-}
-
 
 /**
-  好了，就到这了，下次继续优化~
-  88
+  key的颜色
+*/
+
+.cm-s-supershy .cm-property {
+    color: #7272ff;
+}
+
+/**
+  value的颜色
+*/
+
+.cm-s-supershy .cm-atom {
+    color: #c737ab;
+}
+
+/**
+  选择器增加个亮眼的颜色吧
+*/
+
+.cm-s-supershy .cm-qualifier {
+    color: #55fd55;
+}
+
+.cm-s-supershy div.CodeMirror-cursor {
+    border-left: 3px solid #B2B2B2;
+}
+
+/**
+  数字变个色儿
+*/
+
+.cm-s-supershy .cm-number {
+    color: #bf91ff;
+}
+
+.cm-s-supershy .CodeMirror-activeline-background {
+    background: #000C16;
+}
+
+/**
+  调整下编辑器的宽度吧
+*/
+
+.cm-s-supershy {
+    width: 700px;
+}
+
+/**
+  最后咱们把这个编辑居中吧
+*/
+
+.cm-s-supershy {
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
+}
+
+/**
+  就到这吧
+  睡了~8
 */

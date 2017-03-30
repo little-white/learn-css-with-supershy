@@ -4,17 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="init.css">
+    <link rel="stylesheet" type="text/css" href="codemirror/codemirror.css">
+    <style type="text/css">
+    .CodeMirror {
+        height: 600px;
+        width: 100%;
+        transition: all .3s;
+    }
+    
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 
 <body>
     <!-- <div contenteditable id="editor">Please type something in here</div> -->
-    <pre id="editor" contentEditable="true"></pre>
+    <!--     <pre id="editor" contentEditable="true"></pre>
     <pre id="part">
         
     </pre>
 
-    <div id="part-view"></div>
+    <div id="part-view"></div> -->
+    <script type="text/javascript" src="codemirror/codemirror.min.js"></script>
+    <script type="text/javascript" src="codemirror/active-line.js"></script>
+    <script type="text/javascript" src="codemirror/css.js"></script>
     <script type="text/javascript" src="bundle.js"></script>
 </body>
 

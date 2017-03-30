@@ -1,9 +1,13 @@
 function load() {
     var cssText = require('./style.css');
-    var partText = require('./part.html');
-    var insertCss = require('insert-css');
     var typing = require('typing-animation');
-    // var typing = require('./typing');
+    var wordIndex = 0;
+
+    var myCodeMirror = CodeMirror(document.body, {
+        value: '',
+        mode: "css",
+        theme: "supershy"
+    });
 
     var sheet = (function() {
         var style = document.createElement("style");
@@ -16,35 +20,17 @@ function load() {
     })();
 
     typing({
-        content: partText,
-        selector: document.getElementById('part'),
-        contentEndCallback: function() {
-            document.getElementById('part-view').insertAdjacentHTML('beforeend', document.getElementById('editor').innerText);
-        }
-    });
-
-
-    setTimeout(function() {
-        var k = 0;
-        typing({
-            content: cssText,
-            selector: document.querySelector('pre'),
-            strEndCallback: function(word) {
-                if (word === '}') {
-                    sheet.insertRule(cssText.split('}')[k] + '}', 0);
-                    k++;
-                }
-            },
-            lineEndCallback: function(){
-                window.scrollTo(0, document.body.scrollHeight);
+        content: cssText,
+        wordCallback: function(elem) {
+            myCodeMirror.replaceSelection(elem);
+        },
+        strEndCallback: function(word) {
+            if (word === '}') {
+                sheet.insertRule(cssText.split('}')[wordIndex] + '}', 0);
+                wordIndex++;
             }
-        });
-    }, partText.split('\n').length * 550 + 1000);
-
-
-    var editable = document.getElementById('editor');
-    editable.addEventListener('input', function() {
-        var styleElement = insertCss(document.querySelector('pre').innerText, document.querySelector('style').nextSibling);
+        },
+        lineTimer: 500
     });
 }
 
