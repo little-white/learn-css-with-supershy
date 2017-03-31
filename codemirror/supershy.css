@@ -1,0 +1,38 @@
+.cm-s-supershy {
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: inconsolata, monospace;
+    letter-spacing: 0.3px;
+    word-spacing: 1px;
+    background: #151515;
+    color: #B2B2B2;
+}
+
+.cm-s-supershy .cm-comment {
+    font-style: italic;
+    color: #00A6FF;
+}
+
+.cm-s-supershy .cm-property {
+    color: #7272ff;
+}
+
+.cm-s-supershy .cm-atom {
+    color: #c737ab;
+}
+
+.cm-s-supershy .cm-qualifier {
+    color: #55fd55;
+}
+
+.cm-s-supershy div.CodeMirror-cursor {
+    border-left: 3px solid #B2B2B2;
+}
+
+.cm-s-supershy .cm-number {
+    color: #bf91ff;
+}
+
+.cm-s-supershy .CodeMirror-activeline-background {
+    background: #000C16;
+}
