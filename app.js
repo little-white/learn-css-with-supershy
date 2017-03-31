@@ -30,7 +30,7 @@ function load() {
                 wordIndex++;
             }
         },
-        lineTimer: 1000
+        lineTimer: 500
     });
 }
 
