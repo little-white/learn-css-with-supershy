@@ -1,7 +1,7 @@
 function load() {
     var cssText = require('./style.css');
     var typing = require('typing-animation');
-    var wordIndex = 0;
+    var cssRuleIndex = 0;
 
     var myCodeMirror = CodeMirror(document.body, {
         value: '',
@@ -26,8 +26,8 @@ function load() {
         },
         strEndCallback: function(word) {
             if (word === '}') {
-                sheet.insertRule(cssText.split('}')[wordIndex] + '}', 0);
-                wordIndex++;
+                sheet.insertRule(cssText.split('}')[cssRuleIndex] + '}', cssRuleIndex);
+                cssRuleIndex++;
             }
         },
         lineTimer: 500
