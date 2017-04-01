@@ -1,4 +1,4 @@
-var cssText = require('./test.css');
+var cssText = require('../css/test.css');
 
 var myCodeMirror = CodeMirror(document.body, {
     value: cssText,

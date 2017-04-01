@@ -8,28 +8,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/alertifyjs/1.9.0/css/themes/semantic.min.css" />
     <style>
 
-    .ui.basic.button {
-    	padding: 10px;
-        background-color: #fff;
-        outline: none;
-        border: none;
-        cursor: pointer;
-    }
-    .ui.basic.primary.button {
-        box-shadow: 0 0 0 1px #2185D0 inset!important;
-        color: #2185D0!important;
-    }
-    
-    .ui.basic.black.button {
-        box-shadow: 0 0 0 1px #1B1C1D inset!important;
-        color: #1B1C1D!important;
-    }
+        .ui.basic.button {
+            padding: 10px;
+            background-color: #fff;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        .ui.basic.primary.button {
+            box-shadow: 0 0 0 1px #2185D0 inset!important;
+            color: #2185D0!important;
+        }
+
+        .ui.basic.black.button {
+            box-shadow: 0 0 0 1px #1B1C1D inset!important;
+            color: #1B1C1D!important;
+        }
     </style>
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/alertifyjs/1.9.0/alertify.min.js"></script>
-    <script>
+<script src="https://cdn.jsdelivr.net/alertifyjs/1.9.0/alertify.min.js"></script>
+<script>
     alertify.defaults = {
         // dialogs defaults
         autoReset: true,
@@ -82,11 +82,11 @@
         }
     };
     alertify.confirm('CSS学习：第一关', 'color的使用', function() {
-        window.location.href = './index.html';
+        window.location.href = './tutorial.html';
     }, function() {
         window.location.href = './test.html'
     });
-    </script>
+</script>
 </body>
 
 </html>

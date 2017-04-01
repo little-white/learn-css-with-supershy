@@ -1,5 +1,6 @@
 function load() {
-    var cssText = require('./style.css');
+    
+    var cssText = require('../css/tutorial.css');
     var typing = require('typing-animation');
     var cssRuleIndex = 0;
 
