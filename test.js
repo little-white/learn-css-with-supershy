@@ -10,6 +10,18 @@ function getColor(selector){
     return window.getComputedStyle(selector, null).getPropertyValue("color");
 }
 
+function clearTestLog(){
+    document.querySelector('#mocha').innerHTML = '';
+}
+
+function insertCss(elem, css) {
+    if (elem.styleSheet) {
+        elem.styleSheet.cssText = css;
+    } else {
+        elem.textContent = css;
+    }
+}
+
 mocha.setup('bdd');
 var assert = chai.assert;
 
@@ -34,20 +46,18 @@ describe('color练习', function() {
     });
 });
 
-function insertCss(elem, css) {
-    if (elem.styleSheet) {
-        elem.styleSheet.cssText = css;
-    } else {
-        elem.textContent = css;
-    }
-}
-
 var editable = document.querySelector('.CodeMirror');
 var styleElement = document.querySelector('#style');
 editable.addEventListener('input', function() {
     insertCss(styleElement, myCodeMirror.getValue());
 });
 
+editable.addEventListener('paste', function() {
+    insertCss(styleElement, myCodeMirror.getValue());
+});
+
 document.querySelector('#test-btn').addEventListener('click', function(){
+    clearTestLog();
+
     mocha.run();
 });

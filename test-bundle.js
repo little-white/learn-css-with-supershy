@@ -71,7 +71,7 @@
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = "/**\n\t需要注意的是不要粘贴哦\n\t手动输入进去加深记忆\n*/\n\n/**\n\t1.使用keyword将它变为绿色\n*/\n\n#color-test-one {\n\n}\n\n/**\n\t2.使用Hex Code将它变为绿色\n\t提示：color: #XXXXXX\n*/\n\n#color-test-two {\n\n}\n\n/**\n\t3.使用RGB将它变为绿色\n\t提示：color: RGB(x, x, x)\n*/\n\n#color-test-three {\n\n}\n\n/**\n\t4.使用RGBA将它变为绿色\n\t提示：color: RGBA(x, x, x, x)\n*/\n\n#color-test-four {\n\n}\n\n/**\n\t5.使用HSL将它变为绿色\n\t提示：color: HSL(x, x, x)\n*/\n\n#color-test-five {\n\n}\n\n/**\n\t6.使用RGBA将它变为绿色\n\t提示：color: HSLA(x, x, x, x)\n*/\n\n#color-test-six {\n\t\n}\n"
+module.exports = "/**\n\t需要提醒的是不要粘贴哦\n\t当然你如果硬要粘贴也不能算你错（我加了 paste event ^_^）\n\t不过手动输入进去更会加深记忆\n*/\n\n/**\n\t1.使用keyword将它变为绿色\n*/\n\n#color-test-one {\n\n}\n\n/**\n\t2.使用Hex Code将它变为绿色\n\t提示：color: #XXXXXX\n*/\n\n#color-test-two {\n\n}\n\n/**\n\t3.使用RGB将它变为绿色\n\t提示：color: RGB(x, x, x)\n*/\n\n#color-test-three {\n\n}\n\n/**\n\t4.使用RGBA将它变为绿色\n\t提示：color: RGBA(x, x, x, x)\n*/\n\n#color-test-four {\n\n}\n\n/**\n\t5.使用HSL将它变为绿色\n\t提示：color: HSL(x, x, x)\n*/\n\n#color-test-five {\n\n}\n\n/**\n\t6.使用RGBA将它变为绿色\n\t提示：color: HSLA(x, x, x, x)\n*/\n\n#color-test-six {\n\t\n}\n"
 
 /***/ }),
 /* 2 */,
@@ -89,6 +89,18 @@ var myCodeMirror = CodeMirror(document.body, {
 
 function getColor(selector){
     return window.getComputedStyle(selector, null).getPropertyValue("color");
+}
+
+function clearTestLog(){
+    document.querySelector('#mocha').innerHTML = '';
+}
+
+function insertCss(elem, css) {
+    if (elem.styleSheet) {
+        elem.styleSheet.cssText = css;
+    } else {
+        elem.textContent = css;
+    }
 }
 
 mocha.setup('bdd');
@@ -115,21 +127,19 @@ describe('color练习', function() {
     });
 });
 
-function insertCss(elem, css) {
-    if (elem.styleSheet) {
-        elem.styleSheet.cssText = css;
-    } else {
-        elem.textContent = css;
-    }
-}
-
 var editable = document.querySelector('.CodeMirror');
 var styleElement = document.querySelector('#style');
 editable.addEventListener('input', function() {
     insertCss(styleElement, myCodeMirror.getValue());
 });
 
+editable.addEventListener('paste', function() {
+    insertCss(styleElement, myCodeMirror.getValue());
+});
+
 document.querySelector('#test-btn').addEventListener('click', function(){
+    clearTestLog();
+
     mocha.run();
 });
 
