@@ -22,16 +22,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: true,
+            inject: 'body',
             chunks: ['tutorial'],
             filename: 'color/tutorial.html',
-            template: 'color/tutorial.html'
+            template: 'color/template/tutorial-tpl.html'
         }),
         new HtmlWebpackPlugin({
-            inject: true,
+            inject: 'body',
             chunks: ['test'],
             filename: 'color/test.html',
-            template: 'color/test.html'
+            template: 'color/template/test-tpl.html'
         })
     ]
 }
