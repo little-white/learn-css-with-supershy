@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/alertifyjs/1.9.0/css/alertify.min.css" />
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/alertifyjs/1.9.0/css/themes/semantic.min.css" />
+</head>
+
+<body>
+    <script src="http://cdn.jsdelivr.net/alertifyjs/1.9.0/alertify.min.js"></script>
+    <script>
+    alertify.confirm('Confirm Title', 'Confirm Message', function() {
+    	window.location.href = './index.html';
+    }, function() {
+        window.location.href = './test.html'
+    });
+    </script>
+</body>
+
+</html>

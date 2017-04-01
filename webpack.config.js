@@ -1,8 +1,11 @@
 var path = require('path');
 module.exports = {
-    entry: './app.js',
+    entry: {
+        app: './app.js',
+        test: './test.js'
+    },
     output: {
-        filename: 'bundle.js'
+        filename: '[name]-bundle.js'
     },
     module: {
         // rules: [{
