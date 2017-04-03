@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .link {
+    	text-decoration: underline;
+        color: blue;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="home-container"></div>
+    <script id="template" type="x-tmpl-mustache">
+        {{#login}} Hello {{ name }}!
+        <div class="btn btn-logout">退出</div>{{/login}} {{^login}} {{#loginForm}}
+        <input type="text" name="name" placeholder="name">
+        <input type="password" name="password" placeholder="password">
+        <div class="btn btn-login">登录</div>
+        <a class="go-register link">没有账号</a> {{/loginForm}} {{^loginForm}}
+        <input type="text" name="name" placeholder="name">
+        <input type="password" name="password" placeholder="password">
+        <input type="password" name="repeatPassword" placeholder="repeat password">
+        <div class="btn btn-register">注册</div>
+        <a class="go-login link">已有账号</a> {{/loginForm}} {{/login}}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/pouchdb/6.1.2/pouchdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/store2/2.5.1/store2.min.js"></script>
+    <script>
+    var renderEvent = new CustomEvent('render');
+    function loadHome() {
+        var template = document.querySelector('#template').innerHTML;
+        Mustache.parse(template); // optional, speeds up future uses
+        var rendered = Mustache.render(template, {
+            login: store('user.login'),
+            name: store('user.name'),
+            loginForm: store('form.login')
+        });
+        document.querySelector('#home-container').innerHTML = rendered;
+    }
+
+    </script>
+    <script src="js/init-db.js"></script>
+    <script src="js/validate.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/controller.js"></script>
+
+    <script src="js/render.js"></script>
+</body>
+
+</html>
