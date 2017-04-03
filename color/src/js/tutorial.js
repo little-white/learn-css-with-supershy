@@ -31,7 +31,7 @@ function load() {
                 cssRuleIndex++;
             }
         },
-        lineTimer: 500
+        lineTimer: 1000
     });
 }
 

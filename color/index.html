@@ -29,6 +29,7 @@
 
 <body>
 <script src="https://cdn.jsdelivr.net/alertifyjs/1.9.0/alertify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/store2/2.5.1/store2.min.js"></script>
 <script>
     alertify.defaults = {
         // dialogs defaults
@@ -81,7 +82,8 @@
             cancel: 'ui primary basic button'
         }
     };
-    alertify.confirm('CSS学习：第一关', 'color的使用', function() {
+
+    alertify.confirm('欢迎回来'+store('user.name'), 'CSS学习第一关：color的使用', function() {
         window.location.href = './tutorial.html';
     }, function() {
         window.location.href = './test.html'
