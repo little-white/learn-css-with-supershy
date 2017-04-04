@@ -1,0 +1,45 @@
+/**
+    测试下background学得咋样了吧
+    1.让右侧的区域背景变成红色(rgb(255, 0, 0))
+*/
+
+.container-1 {
+
+}
+
+/**
+    2.使这个背景图片位置距容器的上面10px，距容器左边15px
+*/
+
+.container-2 {
+
+}
+
+/**
+    3.只显示梅花2
+    width: 51px;
+    height: 68px;
+    background-position:? ?;
+*/
+
+.container-3 {
+
+}
+
+/**
+    4.使图片铺满这个容器
+*/
+
+.container-4 {
+
+}
+
+/**
+    5.使图片完整地显示在这个容器里
+*/
+
+.container-5 {
+
+}
+
+

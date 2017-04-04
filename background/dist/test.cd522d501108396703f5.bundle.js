@@ -63,22 +63,22 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 1:
 /***/ (function(module, exports) {
 
-module.exports = "/**\n\t需要提醒的是不要粘贴哦\n\t当然你如果硬要粘贴也不能算你错（我加了 paste event ^_^）\n\t不过手动输入进去更会加深记忆\n*/\n\n/**\n\t1.使用keyword将它变为绿色\n*/\n\n#color-test-one {\n\n}\n\n/**\n\t2.使用Hex Code将它变为绿色\n\t提示：color: #XXXXXX\n*/\n\n#color-test-two {\n\n}\n\n/**\n\t3.使用RGB将它变为绿色\n\t提示：color: RGB(x, x, x)\n*/\n\n#color-test-three {\n\n}\n\n/**\n\t4.使用RGBA将它变为绿色\n\t提示：color: RGBA(x, x, x, x)\n*/\n\n#color-test-four {\n\n}\n\n/**\n\t5.使用HSL将它变为绿色\n\t提示：color: HSL(x, x, x)\n*/\n\n#color-test-five {\n\n}\n\n/**\n\t6.使用RGBA将它变为绿色\n\t提示：color: HSLA(x, x, x, x)\n*/\n\n#color-test-six {\n\t\n}\n"
+module.exports = "/**\n    测试下background学得咋样了吧\n    1.让右侧的区域背景变成红色(rgb(255, 0, 0))\n*/\n\n.container-1 {\n\n}\n\n/**\n    2.使这个背景图片位置距容器的上面10px，距容器左边15px\n*/\n\n.container-2 {\n\n}\n\n/**\n    3.只显示梅花2\n    width: 51px;\n    height: 68px;\n    background-position:? ?;\n*/\n\n.container-3 {\n\n}\n\n/**\n    4.使图片铺满这个容器\n*/\n\n.container-4 {\n\n}\n\n/**\n    5.使图片完整地显示在这个容器里\n*/\n\n.container-5 {\n\n}\n\n\n"
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-var cssText = __webpack_require__(0);
+var cssText = __webpack_require__(1);
 
 var myCodeMirror = CodeMirror(document.body, {
     value: cssText,
@@ -87,7 +87,15 @@ var myCodeMirror = CodeMirror(document.body, {
 });
 
 function getColor(selector){
-    return window.getComputedStyle(selector, null).getPropertyValue("color");
+    return window.getComputedStyle(selector, null).getPropertyValue("background-color");
+}
+
+function getBgPosition(selector){
+    return window.getComputedStyle(selector, null).getPropertyValue("background-position");
+}
+
+function getProps(selector, property){
+    return window.getComputedStyle(selector, null).getPropertyValue(property);
 }
 
 function clearTestLog(){
@@ -105,25 +113,28 @@ function insertCss(elem, css) {
 mocha.setup('bdd');
 var assert = chai.assert;
 
-describe('color练习', function() {
-    it('使用keyword将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-one")), 'rgb(0, 128, 0)')
+describe('background练习', function() {
+    it('第一个区域背景变成红色', function() {
+        assert.equal(getColor(document.querySelector(".container-1")), 'rgb(255, 0, 0)')
     });
-    it('使用Hex Code将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-two")), 'rgb(0, 128, 0)')
+    it('距容器的上面10px，距容器左边15px', function() {
+        assert.equal(getBgPosition(document.querySelector(".container-2")), '15px 10px')
     });
-    it('使用RGB将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-three")), 'rgb(0, 128, 0)')
+    it('只显示梅花2', function() {
+        assert.equal(getBgPosition(document.querySelector(".container-3")), '-48px -65px')
     });
-    it('使用RGBA将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-four")), 'rgb(0, 128, 0)')
+    it('使图片铺满这个容器', function() {
+        assert.equal(getProps(document.querySelector(".container-4"), "background-size"), 'cover')
     });
-    it('使用HSL将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-five")), 'rgb(0, 128, 0)')
+    it('使图片完整地显示在这个容器里', function() {
+        assert.equal(getProps(document.querySelector(".container-5"), "background-size"), 'contain')
     });
-    it('使用RGBA将它变为绿色', function() {
-        assert.equal(getColor(document.querySelector("#color-test-six")), 'rgb(0, 128, 0)')
-    });
+    // it('使图片只显示在padding区域中并且不被裁剪', function() {
+    //     assert.equal(getProps(document.querySelector(".container-6"), "background-origin"), 'padding-box')
+    // });
+    // it('使图片只显示在content区域中并且被裁剪', function() {
+    //     assert.equal(getProps(document.querySelector(".container-7"), "background-clip"), 'content-box')
+    // });
 });
 
 var editable = document.querySelector('.CodeMirror');
@@ -144,4 +155,5 @@ document.querySelector('#test-btn').addEventListener('click', function(){
 
 
 /***/ })
-/******/ ]);
+
+/******/ });

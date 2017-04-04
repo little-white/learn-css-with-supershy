@@ -3,12 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="../codemirror/codemirror.css">
   <link rel="stylesheet" type="text/css" href="../codemirror/supershy.css">
   <style type="text/css">
-
+    body,
+    html,
+    div {
+      margin: 0;
+      padding: 0;
+    }
     .cm-s-supershy {
       height: 600px;
       transition: all .3s;
@@ -19,14 +23,23 @@
       position: fixed;
       top: 100px;
       right: 100px;
+      width: 300px;
+      height: 300px;
     }
+
+
   </style>
+
 </head>
 
 <body>
-<div class="container">hello world</div>
+<div class="container">
+  <div class="attachment-container">
+    <div class="bg-img"></div>
+  </div>
+</div>
 <script type="text/javascript" src="../codemirror/codemirror.min.js"></script>
 <script type="text/javascript" src="../codemirror/active-line.js"></script>
 <script type="text/javascript" src="../codemirror/css.js"></script>
 </html>
-<script type="text/javascript" src="../color/dist/tutorial.48b69fe20f6ef3169195.bundle.js"></script>
+<script type="text/javascript" src="../background/dist/tutorial.36dd0386104e0d1e5a5f.bundle.js"></script>

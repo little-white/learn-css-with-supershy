@@ -3,12 +3,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        tutorial: './color/src/js/tutorial.js',
-        test: './color/src/js/test.js'
+        'color/dist/tutorial': './color/src/js/tutorial.js',
+        'color/dist/test': './color/src/js/test.js',
+        'background/dist/tutorial': './background/src/js/tutorial.js',
+        'background/dist/test': './background/src/js/test.js'
     },
     output: {
         path: __dirname,
-        filename: 'color/dist/js/[name].[chunkhash].bundle.js'
+        filename: '[name].[chunkhash].bundle.js'
     },
     module: {
         // rules: [{
@@ -23,15 +25,27 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: 'body',
-            chunks: ['tutorial'],
+            chunks: ['color/dist/tutorial'],
             filename: 'color/tutorial.html',
             template: 'color/template/tutorial-tpl.html'
         }),
         new HtmlWebpackPlugin({
             inject: 'body',
-            chunks: ['test'],
+            chunks: ['color/dist/test'],
             filename: 'color/test.html',
             template: 'color/template/test-tpl.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: 'body',
+            chunks: ['background/dist/tutorial'],
+            filename: 'background/tutorial.html',
+            template: 'background/template/tutorial-tpl.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: 'body',
+            chunks: ['background/dist/test'],
+            filename: 'background/test.html',
+            template: 'background/template/test-tpl.html'
         })
     ]
 }

@@ -1,0 +1,253 @@
+/**
+    今天是css教程的第二节
+    我们就直奔主题了：background
+    为了形象一些，我们来举几个生活中的例子吧
+    上学时候的黑板，它的背景是黑色的
+    家里的壁纸，它的背景是一个个小图案组成，并且上下左右都是重复的
+    过年玻璃上各种贴画，它的背景是透明色+贴画组成
+    。。。等等
+    注意的是"小明家很有背景"，和我们要学得背景可不是一个意思哦
+    其实代码就是生活中的实例
+    能将生活中有很多例子和代码关联起来，记忆会更深刻
+*/
+
+.container {
+    background-color: #000;
+}
+
+/**
+    字面意思就是：背景颜色
+    这里颜色可以用到我们上节学的color了
+    nice，"黑板"做好了
+    那如何做个"壁纸"呢？
+*/
+
+.container {
+    background-image: url("http://icons.iconarchive.com/icons/ampeross/qetto-2/24/search-icon.png");
+    background-repeat: repeat;
+}
+
+/**
+    我们先看background-image，因为是背景图，肯定得有张图片吧
+    看到长长的一一串了吧，这里我们使用了网络地址
+    当然我们也可以使用本地的
+*/
+
+.container {
+    background-image: url("src/image/search-icon.png");
+}
+
+/**
+    而background-repeat后面的repeat
+    表示了这个图片需要左右重复、上下重复
+    可能聪明的朋友已经想到
+    肯定有专门左右重复、专门上下重复的属性
+*/
+
+.container {
+    /*左右重复*/
+    background-repeat: repeat-x;
+    /*上下重复*/
+    /*background-repeat: repeat-y;*/
+}
+
+/**
+    下面我们来看一看background-position
+    为了更清晰，我们把重复去掉
+*/
+
+.container {
+    background-position: 100px 30px;
+    background-repeat: no-repeat;
+}
+
+/**
+    原点是左上角的那个点点
+    100px表示图片离左边的距离
+    30px表示图片离上边的距离
+
+    实际上通过background-position来控制单个图片位置的场景不多
+    一般都是通过外层的div来控制位置
+    它的强大之处主要在于css sprite（雪碧图）
+    我们想象一个场景：
+    一个页面有N多个小图标，加载这个页面时候这些图标都要显示出来
+    但如果一个个去加载图片，使得client端发送多个请求，并增加了服务器的压力
+    css sprite可以将图片整合成一张大图
+    如果显示其中的某个小图片，background-position的作用就发挥出来了
+
+    就好比图书馆中书架（大图），我们可以通过编号的方式就可以找到某一本书（小图）
+    下面来个例子吧
+*/
+
+.container {
+    background-position: 0 0;
+    background-image: url("src/image/sprite.jpeg");
+    background-repeat: no-repeat;
+}
+
+/**
+    可以看到上面是一个整合好的大图
+    我们来试试把梅花2显示出来
+*/
+
+.container {
+    background-position: -48px -65px;
+    width: 51px;
+    height: 68px;
+}
+
+/**
+    good，梅花2已经出来了^_^
+    是不是很神奇。。。
+
+    下面我们学学background-attachment属性
+    平时可能用到的地方不多
+    主要是在一些官网首页，背景图不跟着滚动时候需要用到它
+    同样来实践下吧
+    先把主容器隐藏
+
+*/
+
+.container {
+    display: none;
+}
+
+/**
+    下面我们给body加个背景
+    看看如何通过background-attachment属性来让设置背景图不跟着动
+*/
+
+body {
+    background-image: url("src/image/sprite.jpeg");
+    /*为了加滚动效果，我们让高度大一些。这块不理解没事 之后会详细讲*/
+    height: 2000px;
+    background-attachment: fixed;
+}
+
+/**
+    往下滚动时候背景图不动了
+    这一节的东西挺多的，没记住没关系
+    主要是练习、练习、练习
+    我们继续。。。
+
+    下面我们讲一个在首页铺满全屏时经常用到的一个属性
+    background-size
+    里面有两个很重要的属性：cover和contain
+*/
+
+body {
+    background: none;
+    height: auto;
+}
+
+/**
+    为了方便展示，我们改成上下布局
+*/
+
+.container {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 300px;
+    background-image: none;
+}
+
+.cm-s-supershy {
+    height: 300px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+/**
+    使用cover看看什么效果
+*/
+
+.container {
+    background-image: url("src/image/bg-img.jpg");
+    background-size: cover;
+    background-color: transparent;
+    background-position: 0 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+}
+
+/**
+    很多代码都是为了覆盖之前的样式，可以忽略
+    我们着重看讲的就好了
+    当我设置了cover，发现页面啥都没显示。。。
+    因为是背景图片，我们要设置具体的大小才可以显示出来
+*/
+
+.container {
+    height: 400px;
+    background-size: cover;
+}
+
+/**
+    图片铺满了整个屏幕，很是完美
+*/
+
+.container {
+    height: 800px;
+}
+
+/**
+    此时我们会发现，为了能铺满整个屏幕
+    背景图片会等比例的放大或缩小
+
+    简单来说就是给定一个容器的宽高
+    我们使用cover将图丢进去
+    图片会占满整个容器
+    但容器的比例不一定和图片一致
+    所以图片可能会被裁剪
+*/
+
+.container {
+    background-size: contain;
+}
+
+/**
+    而contain能保证我们的图片能显示全
+    所以可能会有左右或者上下留白
+
+    我们来举个生活的例子加深印象吧
+    经常出去旅游的人会带相机or手机拍照留念
+    想象你在一个寺庙前面
+    如果希望能把寺庙拍全（contain）
+    你需要离得稍微远一些
+    这样是拍全了，但周围有很多留白对吧
+    如果你希望相机里只有寺庙（cover）
+    你得离得很近，让寺庙铺满了相机的视角
+    但这样寺庙的某些部分就拍不到了，也就是说被裁剪了
+*/
+
+.container {
+    padding: 50px;
+    background-origin: content-box;
+}
+
+/**
+    我们会看到使用了content-box
+    背景图只在content区域显示
+*/
+
+.container {
+    background-origin: padding-box;
+}
+
+/**
+    这样就可以在padding区域显示了
+    我想如果设置为border-box
+    大家应该能猜到
+    在border也可以显示了~
+
+    background-clip和background-origin
+    其实挺类似的，有稍许的区别
+    我们通过一个页面来看吧
+    点击 https://little-white.github.io/learn-css-with-supershy/color/demo.html
+
+    这次的东西有点多，抓紧时间联系吧！
+*/

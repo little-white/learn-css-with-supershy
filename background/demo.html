@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: url("src/image/bg-img.jpg") no-repeat;
+            height: 400px;
+            padding: 50px;
+            background-color: #fff;
+            border: 50px dashed red;
+            background-size: cover;
+            color: #fff;
+            font-size: 50px;
+            margin-bottom: 50px;
+        }
+
+        .container-1 {
+            background-origin: padding-box;
+        }
+
+        .container-2 {
+            background-origin: border-box;
+        }
+
+        .container-3 {
+            background-origin: content-box;
+        }
+
+        .container-4 {
+            background-clip: padding-box;
+        }
+
+        .container-5 {
+            background-clip: border-box;
+        }
+
+        .container-6 {
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+<div class="container container-1">
+    background-origin: padding-box;
+</div>
+<div class="container container-2">
+    background-origin: border-box;
+</div>
+<div class="container container-3">
+    background-origin: content-box;
+</div>
+<div class="container container-4">
+    background-clip: padding-box;
+</div>
+<div class="container container-5">
+    background-clip: border-box;
+</div>
+<div class="container container-6">
+    background-clip: content-box;
+</div>
+</body>
+</html>
