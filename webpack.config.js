@@ -6,7 +6,9 @@ module.exports = {
         'color/dist/tutorial': './color/src/js/tutorial.js',
         'color/dist/test': './color/src/js/test.js',
         'background/dist/tutorial': './background/src/js/tutorial.js',
-        'background/dist/test': './background/src/js/test.js'
+        'background/dist/test': './background/src/js/test.js',
+        'font/dist/tutorial': './font/src/js/tutorial.js',
+        'font/dist/test': './font/src/js/test.js'
     },
     output: {
         path: __dirname,
@@ -46,6 +48,18 @@ module.exports = {
             chunks: ['background/dist/test'],
             filename: 'background/test.html',
             template: 'background/template/test-tpl.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: 'body',
+            chunks: ['font/dist/tutorial'],
+            filename: 'font/tutorial.html',
+            template: 'font/template/tutorial-tpl.html'
+        }),
+        new HtmlWebpackPlugin({
+            inject: 'body',
+            chunks: ['font/dist/test'],
+            filename: 'font/test.html',
+            template: 'font/template/test-tpl.html'
         })
     ]
 }

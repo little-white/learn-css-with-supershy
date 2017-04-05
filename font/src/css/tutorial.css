@@ -1,0 +1,126 @@
+/**
+    今天是css教程的第三节
+    如果上一节background如果都学懂了的话
+    相信这节会更容易的
+    希望大家都渐入佳境~
+    开始今天的主题：font
+    希望大家先能联想下office word的功能呢
+    这次的顺序我们按照
+    常用程度
+    难易程度
+
+    先看看如何改变一个字体的大小
+*/
+
+.container {
+    font-size: 40px;
+}
+
+/**
+    和color类似，它也有很多keyword的值
+    比如
+    small、large、smaller、larger等等
+    但还是建议使用明确的数值
+    因为这样更清晰
+
+    经常看到一些网页中标题或者其它着重的问字就变粗了
+    那这种效果是如何实现的呢？
+*/
+
+.container {
+    font-weight: bold;
+}
+
+/**
+    可能有朋友就问
+    为啥加粗你就要keyword，而大小用数值呢
+    因为习惯吧
+    我觉得数值表示大小时更明确
+    用keyword表示字体粗细更形象
+    毕竟很少有人会设置一个字到底多粗、到底多细。。。
+
+    在office word中我们经常会设置文字的字体格式
+    比如宋体、隶体、正圆体等等
+    那css种的font也有这个功能
+*/
+
+.container {
+    font-family: georgia;
+}
+
+/**
+    我也不知道这是啥体，但可以看到确实和之前的字体不同了
+    我们来看下新浪的字体它是咋用的
+*/
+
+.container {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/**
+    这里简单解释下
+    如果有Arial字体就显示
+    否则就显示Helvetica
+    如果Helvetica也没有
+    就显示sans-serif字体
+    当然如果都没有，那就只要显示默认字体了
+    （我也不清楚默认字体是个啥 有兴趣的可以搜搜）
+    举个例子吧
+    马上要期末考试了
+    小明的爸爸说
+    "你这次最好考个100分"
+    "考不到90也行"
+    "实在没发挥好80也凑合了"
+    结果小明当天拉肚子
+    考了个刚及格，小明明爸爸此时醒悟了
+    对孩子不能要求太高
+    他只要尽力了 就行。。。
+    好像扯得有点远了
+
+    回归正题，有好奇的朋友可能就问
+    如果我想用个拉风的字体，但默认没这字体咋办呢
+    此时font-face就派上用场了
+    它可以自定义字体
+*/
+
+@font-face {
+    /*这里可以写你自定义字体的名称 之后会用到*/
+    font-family: 'Xoxoxa';
+    /*这里是自定义字体的文件，当然也可以存下来，使用本地路径*/
+    src: url('src/font/Xoxoxa.ttf');
+}
+
+/**
+    我们已经定义好了"supershy"字体
+    看看效果吧
+*/
+
+.container {
+    font-family: Xoxoxa;
+}
+
+/**
+    现在我们的hello world看起来非常有型
+    大家可以下载各种字体来练习练习
+    可以推荐个链接：http://www.webpagepublicity.com/free-fonts-x.html
+    接下来我们再说下office word中的斜体
+    对应到css中的是font-style
+*/
+
+.container {
+    font-style: italic;
+}
+
+/**
+    字体的学习就到这了
+    当然还有些属性
+    浏览器的兼容性还不好很好
+    就不说了，有兴趣的可以去看看
+    font-size-adjust
+    font-stretch
+*/
+
+
+
+
+

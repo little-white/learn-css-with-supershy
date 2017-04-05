@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/alertifyjs/1.9.0/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/alertifyjs/1.9.0/css/themes/semantic.min.css" />
+    <style>
+
+        .ui.basic.button {
+            padding: 10px;
+            background-color: #fff;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        .ui.basic.primary.button {
+            box-shadow: 0 0 0 1px #2185D0 inset!important;
+            color: #2185D0!important;
+        }
+
+        .ui.basic.black.button {
+            box-shadow: 0 0 0 1px #1B1C1D inset!important;
+            color: #1B1C1D!important;
+        }
+    </style>
+</head>
+
+<body>
+<script src="https://cdn.jsdelivr.net/alertifyjs/1.9.0/alertify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/store2/2.5.1/store2.min.js"></script>
+<script>
+    alertify.defaults = {
+        // dialogs defaults
+        autoReset: true,
+        basic: false,
+        closable: true,
+        closableByDimmer: true,
+        frameless: false,
+        maintainFocus: true, // <== global default not per instance, applies to all dialogs
+        maximizable: true,
+        modal: true,
+        movable: true,
+        moveBounded: false,
+        overflow: true,
+        padding: true,
+        pinnable: true,
+        pinned: true,
+        preventBodyShift: false, // <== global default not per instance, applies to all dialogs
+        resizable: true,
+        startMaximized: false,
+        transition: 'pulse',
+
+        // notifier defaults
+        notifier: {
+            // auto-dismiss wait time (in seconds)  
+            delay: 5,
+            // default position
+            position: 'bottom-right',
+            // adds a close button to notifier messages
+            closeButton: false
+        },
+
+        // language resources 
+        glossary: {
+            // dialogs default title
+            title: 'AlertifyJS',
+            // ok button text
+            ok: '看看教程',
+            // cancel button text
+            cancel: '直接闯关'
+        },
+
+        // theme settings
+        theme: {
+            // class name attached to prompt dialog input textbox.
+            input: 'ajs-input',
+            // class name attached to ok button
+            ok: 'ui black basic button',
+            // class name attached to cancel button 
+            cancel: 'ui primary basic button'
+        }
+    };
+
+    alertify.confirm('欢迎回来'+store('user.name'), 'CSS学习第三关：font的使用', function() {
+        window.location.href = './tutorial.html';
+    }, function() {
+        window.location.href = './test.html'
+    });
+</script>
+</body>
+
+</html>
