@@ -11,6 +11,8 @@
 
 
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="list-obj.js"></script>
 </head>
 <body>
 <div class="container">
@@ -26,15 +28,21 @@
         </ul>
     </header>
 
-    <div class="content">
-        <div>
-            <ul>
-                <li><a href="color/index.html"><span>Chapter  1.</span> Color</a></li>
-                <li><a href="background/index.html"><span>Chapter  2.</span> Background</a></li>
-                <li><a href="font/index.html"><span>Chapter  3.</span> Font</a></li>
-            </ul>
-        </div>
-    </div>
+    <div class="content"></div>
+    <script id="template" type="x-tmpl-mustache">
+        {{#tutorials}}
+        {{{list-item}}}
+        {{/tutorials}}
+    </script>
+    <script>
+        function renderList() {
+            var template = document.querySelector('#template').innerHTML;
+            Mustache.parse(template);
+            var rendered = Mustache.render(template, listObj);
+            document.querySelector('.content').innerHTML = rendered;
+        }
+        renderList();
+    </script>
 </div>
 </body>
 </html>
